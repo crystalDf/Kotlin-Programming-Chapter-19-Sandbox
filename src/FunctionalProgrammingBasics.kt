@@ -63,6 +63,25 @@ fun main() {
 
     println(flipValues(gradesByStudent))
 
+    val valuesToAdd = listOf(1, 18, 73, 3, 44, 6, 1, 33, 2, 22, 5, 7)
+
+    println("Step 1: ${valuesToAdd.joinToString(", ")}")
+
+    println(valuesToAdd.filter { it >= 5 })
+
+    println("Step 2: ${valuesToAdd.filter { it >= 5 }.joinToString(", ")}")
+
+    println(valuesToAdd.filter { it >= 5 }.windowed(2, 2))
+
+    println("Step 3: ${valuesToAdd.filter { it >= 5 }.windowed(2, 2) 
+    { "[" + it.joinToString("*") + "]"}.joinToString(", ")}")
+
+    println(valuesToAdd.filter { it >= 5 }.windowed(2, 2) { it.first() * it.last() })
+
+    print("Step 4: ${valuesToAdd.filter { it >= 5 }.windowed(2, 2) 
+    { it.first() * it.last() }.joinToString(" + ")} = ")
+    println(valuesToAdd.filter { it >= 5 }.windowed(2, 2) { it.first() * it.last() }.sum())
+
 }
 
 fun Int.isPrime(): Boolean {
