@@ -58,6 +58,11 @@ fun main() {
 
     println("List completed in $listInNanos ns")
     println("Sequence completed in $sequenceInNanos ns")
+
+    val gradesByStudent = mapOf("Josh" to 4.0, "Alex" to 2.0, "Jane" to 3.0)
+
+    println(flipValues(gradesByStudent))
+
 }
 
 fun Int.isPrime(): Boolean {
@@ -69,4 +74,9 @@ fun Int.isPrime(): Boolean {
     }
 
     return true
+}
+
+fun flipValues(map: Map<String, Double>): Map<Double, String> {
+
+    return map.map { it.value }.zip(map.map { it.key }).toMap()
 }
